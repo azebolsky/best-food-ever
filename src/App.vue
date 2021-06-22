@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <Header @btn-click="$emit()" />
-    <AddFood />
+    <Header @toggle-food="toggleFoodButton" :showAddFood="showAddFood" @btn-click="$emit()" />
+    <div v-if="showAddFood">
+      <AddFood @add-food="addFood" />
+    </div>
     <!-- have to v-bind with : foods because it's dynamic -->
     <Foods @delete-food="deleteFood" :foods="foods" />
   </div>
@@ -21,13 +23,20 @@ export default {
   },
   data() {
     return {
-      foods: []
+      foods: [],
+      showAddFood: false
     };
   },
   methods: {
     deleteFood(id) {
       // console.log(id);
       this.foods = this.foods.filter(food => food.id !== id);
+    },
+    addFood(newFood) {
+      this.foods = [...this.foods, newFood];
+    },
+    toggleFoodButton() {
+      this.showAddFood = !this.showAddFood;
     }
   },
   // created is a lifecycle method used to load foods when app starts;

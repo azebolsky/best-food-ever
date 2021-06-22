@@ -1,7 +1,12 @@
 <template>
   <div class="header">
     <h1>Food Entry</h1>
-    <Button text="Add Food" color="blue" />
+    <Button
+      @toggle-food="$emit('toggle-food')"
+      :showAddFood="showAddFood"
+      text="Add Food"
+      color="blue"
+    />
   </div>
 </template>
 
@@ -12,6 +17,9 @@ export default {
   name: "Header",
   components: {
     Button
+  },
+  props: {
+    showAddFood: Boolean
   }
 };
 </script>

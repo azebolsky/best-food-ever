@@ -1,5 +1,5 @@
 <template>
-  <form class="add-form">
+  <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Food</label>
       <!-- v-model binds inputs with data -->
@@ -29,7 +29,32 @@
 
 <script>
 export default {
-  name: "AddFood"
+  name: "AddFood",
+  data() {
+    return {
+      food: "",
+      restaurant: "",
+      date: "",
+      rank: ""
+    };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      if (!this.food) {
+        alert("please add a food");
+        return;
+      }
+      const newFood = {
+        id: Math.floor(Math.random() * 100000),
+        food: this.food,
+        restaurant: this.restaurant,
+        date: this.date,
+        rank: this.rank
+      };
+      this.$emit("add-food", newFood);
+    }
+  }
 };
 </script>
 

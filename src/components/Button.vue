@@ -10,11 +10,12 @@ export default {
   name: "Button",
   props: {
     text: String,
-    color: String
+    color: String,
+    showAddFood: Boolean
   },
   methods: {
     onClick() {
-      this.$emit("btn-click");
+      this.$emit("toggle-food");
     }
   }
 };
