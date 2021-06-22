@@ -8,11 +8,21 @@
     <div class="form-control">
       <label>Restaurant</label>
       <!-- v-model binds inputs with data -->
-      <input type="text" name="restaurant" v-model="restaurant" placeholder="Add Restaurant" />
+      <input
+        type="text"
+        name="restaurant"
+        v-model="restaurant"
+        placeholder="Add Restaurant"
+      />
     </div>
     <div class="form-control">
       <label>Date Eaten</label>
-      <input type="text" name="date" v-model="date" placeholder="Add Day and Time" />
+      <input
+        type="text"
+        name="date"
+        v-model="date"
+        placeholder="Add Day and Time"
+      />
     </div>
     <div class="form-control">
       <label>Rank</label>
@@ -35,7 +45,7 @@ export default {
       food: "",
       restaurant: "",
       date: "",
-      rank: ""
+      rank: "",
     };
   },
   methods: {
@@ -46,15 +56,18 @@ export default {
         return;
       }
       const newFood = {
-        id: Math.floor(Math.random() * 100000),
+        // id: Math.floor(Math.random() * 100000),
         food: this.food,
         restaurant: this.restaurant,
         date: this.date,
-        rank: this.rank
+        rank: this.rank,
       };
-      this.$emit("add-food", newFood);
-    }
-  }
+      this.$emit("add-food", newFood), (this.food = "");
+      this.restaurant = "";
+      this.date = "";
+      this.rank = "";
+    },
+  },
 };
 </script>
 

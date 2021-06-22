@@ -1,0 +1,28 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "rank": 3,
+      "foodType": "sandwich",
+      "food": "Au Jus Sandwich",
+      "restaurant": "Rebel Cheese",
+      "date": "June 8th, 2021"
+    },
+    {
+      "id": 2,
+      "rank": 1,
+      "foodType": "sandwich",
+      "food": "Al Pastor Torta",
+      "restaurant": "Nunos",
+      "date": "March 8th, 2020"
+    },
+    {
+      "id": 3,
+      "rank": 2,
+      "foodType": "sandwich",
+      "food": "Pesto Sandwich",
+      "restaurant": "Bar None",
+      "date": "June 8th, 2021"
+    }
+  ]
+}

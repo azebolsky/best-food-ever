@@ -2,10 +2,11 @@
   <div class="header">
     <h1>Food Entry</h1>
     <Button
+      v-show="homePage"
       @toggle-food="$emit('toggle-food')"
       :showAddFood="showAddFood"
-      text="Add Food"
-      color="blue"
+      :text="showAddFood ? 'Close' : 'Add Food'"
+      :color="showAddFood ? 'red' : 'blue'"
     />
   </div>
 </template>
@@ -16,11 +17,20 @@ import Button from "./Button";
 export default {
   name: "Header",
   components: {
-    Button
+    Button,
   },
   props: {
-    showAddFood: Boolean
-  }
+    showAddFood: Boolean,
+  },
+  computed: {
+    homePage() {
+      if (this.$route.path === "/") {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 };
 </script>
 

@@ -1,73 +1,35 @@
 <template>
   <div class="container">
-    <Header @toggle-food="toggleFoodButton" :showAddFood="showAddFood" @btn-click="$emit()" />
-    <div v-if="showAddFood">
-      <AddFood @add-food="addFood" />
-    </div>
-    <!-- have to v-bind with : foods because it's dynamic -->
-    <Foods @delete-food="deleteFood" :foods="foods" />
+    <Header
+      @toggle-food="toggleFoodButton"
+      :showAddFood="showAddFood"
+      @btn-click="$emit()"
+    />
+    <router-view :showAddFood="showAddFood"></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import Foods from "./components/Foods";
-import AddFood from "./components/AddFood";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
   components: {
     Header,
-    Foods,
-    AddFood
+    Footer,
   },
   data() {
     return {
-      foods: [],
-      showAddFood: false
+      showAddFood: false,
     };
   },
   methods: {
-    deleteFood(id) {
-      // console.log(id);
-      this.foods = this.foods.filter(food => food.id !== id);
-    },
-    addFood(newFood) {
-      this.foods = [...this.foods, newFood];
-    },
     toggleFoodButton() {
       this.showAddFood = !this.showAddFood;
-    }
+    },
   },
-  // created is a lifecycle method used to load foods when app starts;
-  created() {
-    this.foods = [
-      {
-        id: 1,
-        rank: 3,
-        foodType: "sandwich",
-        food: "Au Jus Sandwich",
-        restaurant: "Rebel Cheese",
-        date: "June 8th, 2021"
-      },
-      {
-        id: 2,
-        rank: 1,
-        foodType: "sandwich",
-        food: "Al Pastor Torta",
-        restaurant: "Nunos",
-        date: "March 8th, 2020"
-      },
-      {
-        id: 3,
-        rank: 2,
-        foodType: "sandwich",
-        food: "Pesto Sandwich",
-        restaurant: "Bar None",
-        date: "June 8th, 2021"
-      }
-    ];
-  }
 };
 </script>
 
