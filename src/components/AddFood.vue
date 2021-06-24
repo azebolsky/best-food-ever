@@ -24,6 +24,26 @@
         placeholder="Add Day and Time"
       />
     </div>
+    <section class="veg-section">
+      <div class="form-control-check">
+        <label>Vegan</label>
+        <input
+          type="checkbox"
+          name="vegan"
+          v-model="vegan"
+          v-if="!vegetarian"
+        />
+      </div>
+      <div class="form-control-check">
+        <label>Vegetarian</label>
+        <input
+          type="checkbox"
+          name="vegetarian"
+          v-model="vegetarian"
+          v-if="!vegan"
+        />
+      </div>
+    </section>
     <div class="form-control">
       <label>Rank</label>
       <select name="rank" v-model="rank">
@@ -46,6 +66,8 @@ export default {
       restaurant: "",
       date: "",
       rank: "",
+      vegan: false,
+      vegetarian: false,
     };
   },
   methods: {
@@ -61,11 +83,15 @@ export default {
         restaurant: this.restaurant,
         date: this.date,
         rank: this.rank,
+        vegan: this.vegan,
+        vegetarian: this.vegetarian,
       };
       this.$emit("add-food", newFood), (this.food = "");
       this.restaurant = "";
       this.date = "";
       this.rank = "";
+      this.vegan = false;
+      this.vegetarian = false;
     },
   },
 };
@@ -87,6 +113,10 @@ export default {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+.veg-section {
+  display: flex;
+  justify-content: space-evenly;
 }
 .form-control-check {
   display: flex;

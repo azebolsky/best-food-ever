@@ -6,6 +6,8 @@
       "foodType": "sandwich",
       "food": "Au Jus Sandwich",
       "restaurant": "Rebel Cheese",
+      "vegan": true,
+      "vegetarian": false,
       "date": "June 8th, 2021"
     },
     {
@@ -14,6 +16,8 @@
       "foodType": "sandwich",
       "food": "Al Pastor Torta",
       "restaurant": "Nunos",
+      "vegan": false,
+      "vegetarian": true,
       "date": "March 8th, 2020"
     },
     {
@@ -22,6 +26,8 @@
       "foodType": "sandwich",
       "food": "Pesto Sandwich",
       "restaurant": "Bar None",
+      "vegan": true,
+      "vegetarian": false,
       "date": "June 8th, 2021"
     }
   ]
