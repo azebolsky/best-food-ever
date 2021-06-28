@@ -8,7 +8,7 @@
       <i class="fas fa-pizza-slice"></i>
       <h1>Best Food I've Ever</h1>
     </div>
-    <div @click="$emit('show-login-reg')" class="login-reg">
+    <div @click="$emit('toggle-login')" class="login-reg">
       Login / Register
     </div>
   </section>
@@ -23,7 +23,7 @@ export default {
 <style scoped>
 .nav-container {
   width: 100%;
-  height: 60px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
