@@ -29,7 +29,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: aliceblue;
+  background-color: rgb(235, 235, 235);
 }
 .food-content {
   width: 40%;
